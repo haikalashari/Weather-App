@@ -15,14 +15,14 @@ search .addEventListener('click', () => {
         
        // console.log(json);
 
-        if(json.error.message === "No matching location found.") {
+        if(json.hasOwnProperty('error')) {
             container.style.height = '400px';
             weatherBox.style.display = 'none';
             weatherDetails.style.display = 'none';
             error404.style.display = 'block';
             error404.classList.add('fadeIn');
             return;
-        }
+        }  
 
         error404.style.display = 'none';
         error404.classList.remove('fadeIn');
