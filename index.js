@@ -13,9 +13,9 @@ search .addEventListener('click', () => {
 
     fetch(`https://api.weatherapi.com/v1/current.json?key=${API}&q=${city}`).then(response => response.json()).then(json => {
         
-        console.log(json);
+       // console.log(json);
 
-        if(json.cod === '404') {
+        if(json.error.message === 'No matching location found.') {
             container.style.height = '400px';
             weatherBox.style.display = 'none';
             weatherDetails.style.display = 'none';
@@ -27,6 +27,7 @@ search .addEventListener('click', () => {
         error404.style.display = 'none';
         error404.classList.remove('fadeIn');
 
+        const location = document.querySelector('.location');
         const image = document.querySelector('.weather-box img');
         const temprature = document.querySelector('.weather-box .temprature');
         const description = document.querySelector('.weather-box .description');
@@ -210,6 +211,7 @@ search .addEventListener('click', () => {
         description.innerHTML =  `${json.current.condition.text}`;
         humidity.innerHTML = `${json.current.humidity}%`;
         wind.innerHTML = `${parseFloat(json.current.wind_kph)} Km/h`;
+        location.innerHTML = `${json.location.name}, ${json.location.country}`;
 
         weatherBox.style.display = '';
         weatherDetails.style.display = '';
