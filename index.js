@@ -15,7 +15,7 @@ search .addEventListener('click', () => {
         
        // console.log(json);
 
-        if(json.error.message === 'No matching location found.') {
+        if(json.error.message === "No matching location found.") {
             container.style.height = '400px';
             weatherBox.style.display = 'none';
             weatherDetails.style.display = 'none';
