@@ -3,7 +3,7 @@ const search = document.querySelector('.search-box button');
 const weatherBox = document.querySelector('.weather-box');
 const weatherDetails = document.querySelector('.weather-details');
 const error404 = document.querySelector('.not-found');
-
+const searchEnter = document.querySelector('.search-box input');
 function searching(){
     const API = "3232cc4b4be04296ad990358231008";
     const city = document.querySelector('.search-box input').value;
